@@ -51,5 +51,6 @@ RUN python3 setup.py install
 
 USER odoo
 CMD ["odoo", "--addons-path=addons", "-c", "/opt/odoo/odoo.conf", "--db_host=odoo_db", "--db_user=admin", "--db_password=admin"]
+
 #CMD ["odoo", "--addons-path=addons,/opt/odoo/extra_addons", "-c", "/opt/odoo/odoo.conf", "--db_host=odoo_db", "--db_user=admin", "--db_password=admin"]
 
