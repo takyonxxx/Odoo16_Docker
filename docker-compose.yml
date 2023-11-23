@@ -7,7 +7,7 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_DB: postgres
+      POSTGRES_DB: odoo_db
       POSTGRES_PASSWORD: admin
       POSTGRES_USER: admin
     volumes:
