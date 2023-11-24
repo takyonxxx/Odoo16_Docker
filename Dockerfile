@@ -39,18 +39,11 @@ COPY wait-for-psql.py /usr/local/bin/wait-for-psql.py
 
 WORKDIR /opt/odoo/server/
 
-RUN pip3 install --upgrade pip setuptools wheel
-RUN pip3 install scikit-build
-RUN pip install pyinotify
-
-RUN pip3 install "setuptools==58.0.0"
 RUN pip3 install --upgrade -r requirements.txt
 
 CMD ["su", "-", "odoo", "/bin/bash"]
 RUN python3 setup.py install
 
 USER odoo
-CMD ["odoo", "--addons-path=addons", "-c", "/opt/odoo/odoo.conf", "--db_host=odoo_db", "--db_user=admin", "--db_password=admin"]
-
-#CMD ["odoo", "--addons-path=addons,/opt/odoo/extra_addons", "-c", "/opt/odoo/odoo.conf", "--db_host=odoo_db", "--db_user=admin", "--db_password=admin"]
+CMD ["odoo", "--addons-path=/opt/odoo/server/addons", "-c", "/opt/odoo/odoo.conf", "--db_host=odoo_db", "--db_user=admin", "--db_password=admin"]
 
